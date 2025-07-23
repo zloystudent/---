@@ -222,7 +222,7 @@
 | **Предусловие** | • Рубрика с именем `API Created Category` отсутствует в БД. |
 | **Шаги (API Request)** | 1. Сформировать `{{http_method}}` запрос.<br>2. URL запроса: `{{base_url}}{{endpoint}}`<br>3. Установить заголовок авторизации: `{{auth_header}}`<br>4. Установить тело запроса: `{{request_body}}`<br>5. Отправить запрос. |
 | **Ожидаемый результат** | • Статус ответа: `201 Created`.<br>• Тело ответа содержит JSON-объект новой рубрики, включая ее `id`. |
-| **Верификация (DB)** | • Выполнить `SELECT t.name, tt.taxonomy FROM wp_terms t JOIN wp_term_taxonomy tt ON t.term_id = tt.term_id WHERE t.name = 'API Created Category';`.<br>• Ожидаемый результат: Запрос возвращает 1 строку со значениями `API Created Category` и `category`. |
+| **Верификация (DB)** | • Выполнить `SELECT * FROM wp_terms WHERE term_id = [ID_рубрики] Category';`.<br>• Ожидаемый результат: Запрос возвращает 1 строку со значениями `API Created Category` и `category`. |
 
 **Тестовые данные для TC_CAT_001**
 
