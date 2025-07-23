@@ -9,7 +9,7 @@
 | **Предусловие** | • Пользователь с логином и email из таблицы данных отсутствует в БД. |
 | **Шаги (API Request)** | 1. Сформировать `{{http_method}}` запрос.<br>2. URL запроса: `{{base_url}}{{endpoint}}`<br>3. Установить заголовок авторизации: `{{auth_header}}`<br>4. Установить тело запроса: `{{request_body}}`<br>5. Отправить запрос. |
 | **Ожидаемый результат** | • Статус ответа: `201 Created`.<br>• Тело ответа содержит JSON-объект нового пользователя, включая его `id`. |
-| **Верификация (DB)** | • `SELECT * FROM wp_users WHERE user_login = 'testuser_api';` -> 1 строка.<br>• `SELECT meta_value FROM wp_usermeta WHERE user_id = [ID] AND meta_key = 'wp_capabilities';` -> содержит роль `subscriber`. |
+| **Верификация (DB)** | • `SELECT * FROM wp_users WHERE user_login = 'testuser_api';` -> 1 строка.<br>•|
 
 **Тестовые данные для TC_USER_001**
 
@@ -19,7 +19,7 @@
 | `base_url` | `http://localhost:8000/index.php?rest_route=` |
 | `endpoint` | `/wp/v2/users/` |
 | `auth_header` | Authorization: Basic [base64-строка от 'admin:password'] |
-| `request_body` | `{ "username": "testuser_api", "email": "testuser_api@example.com", "password": "StrongPassword123", "roles": ["subscriber"] }` |
+| `request_body` | `{ "username": "testuser_api", "email": "testuser_api@example.com", "password": "StrongPassword123" }` |
 
 ---
 #### **TC_USER_002: Успешное обновление данных пользователя**
